@@ -15,8 +15,8 @@ class CreateJenisTable extends Migration
     {
         Schema::create('jenis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_jenia');
-            $table->string('kode_jenis')->unique();
+            $table->string('nama_jenis');
+            $table->string('kode_jenis');
             $table->string('keterangan');
             $table->timestamps();
         });

@@ -30,6 +30,7 @@
                   <th>Nama</th>
                   <th>Kode Jenis</th>
                   <th>Keterangan</th>
+                  <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,6 +40,10 @@
                 <td>{{$dt_jenis->nama_jenis}}</td>
                 <td>{{$dt_jenis->kode_jenis}}</td>
                 <td>{{$dt_jenis->keterangan}}</td>
+                <td>
+                  <a href="/jenis/{{$dt_jenis->id}}/edit" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span></a>
+                  <a href="/jenis/{{$dt_jenis->id}}/delete" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span></a>
+                </td>
               </tr>
             @endforeach
             </tbody>

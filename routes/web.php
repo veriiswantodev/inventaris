@@ -22,5 +22,9 @@ Route::get('/', function () {
 
 // Route Inventaris
 Route::get('/inventaris', [InventarisController::class, 'index']);
+// Route Jenis
 Route::get('/jenis', [JenisController::class, 'index']);
 Route::post('/jenis/addjenis', [JenisController::class, 'addjenis']);
+Route::get('/jenis/{id}/edit', [JenisController::class, 'edit']);
+Route::post('/jenis/{id}/update', [JenisController::class, 'update']);
+Route::get('/jenis/{id}/delete', [JenisController::class, 'deletejenis']);
