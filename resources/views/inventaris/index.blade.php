@@ -30,28 +30,30 @@
         <div class="table-resposive p-3">
           <table id="inventaris_table" class="table table-striped">
             <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Nama</th>
-                  <th>Jenis</th>
-                  <th>Jumlah</th>
-                  <th>Tanggal Register</th>
-                  <th>Ruang</th>
-                  <th>Kode Inventaris</th>
-                  <th>Petugas</th>
-                </tr>
+              <tr>
+                <th>No.</th>
+                <th>Nama</th>
+                <th>Jenis</th>
+                <th>Jumlah</th>
+                <th>Tanggal Register</th>
+                <th>Ruang</th>
+                <th>Kode Inventaris</th>
+                <th>Petugas</th>
+              </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+              @foreach ($inventaris as $inv)
+              <tr>
+                <td>{{$loop->iteration}}</td>
+                <td>{{$inv->nama}}</td>
+                <td>{{$inv->jenis_id}}</td>
+                <td>{{$inv->jumlah}}</td>
+                <td>{{$inv->tanggal_register}}</td>
+                <td>{{$inv->ruang_id}}</td>
+                <td>{{$inv->kode_inventaris}}</td>
+                <td></td>
+              </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -90,7 +92,7 @@
                       <div class="form-group row">
                         <label for="keterangan" class="col-sm-4 col-form-label">Keterangan</label>
                         <div class="col-sm-8">
-                            <input type="text" name="ketreangan" class="form-control" placeholder="optional">
+                            <input type="text" name="keterangan" class="form-control" placeholder="optional">
                         </div>
                       </div>
                       
@@ -104,7 +106,12 @@
                       <div class="form-group row">
                         <label for="jenis" class="col-sm-4 col-form-label">jenis</label>
                         <div class="col-sm-8">
-                            <input type="text" name="jenis_id" class="form-control">
+                          <select name="jenis_id" class="form-control">
+                            <option class="selected">Silahkan Pilih</option>
+                            @foreach ($jenis as $dt_jenis)
+                                <option value="{{$dt_jenis->id}}">{{$dt_jenis->nama_jenis}}</option>
+                            @endforeach
+                          </select>
                         </div>
                       </div>
                     
@@ -118,23 +125,28 @@
                       <div class="form-group row">
                         <label for="ruang" class="col-sm-4 col-form-label">Ruang</label>
                         <div class="col-sm-8">
-                            <input type="text" name="ruang_id" class="form-control">
+                          <select name="ruang_id" class="form-control">
+                            <option class="selected">Silahkan Pilih</option>
+                            @foreach ($ruang as $dt_ruang)
+                                <option value="{{$dt_ruang->id}}">{{$dt_ruang->nama_ruang}}</option>
+                            @endforeach
+                          </select>
                         </div>
                       </div>
                       
                       <div class="form-group row">
                         <label for="kode_inventaris" class="col-sm-4 col-form-label">Kode Inventaris</label>
                         <div class="col-sm-8">
-                            <input type="text" name="kode_inventaris" class="form-control">
+                            <input type="text" name="kode_inventaris" class="form-control" value="{{$number}}/INV/.../{{$dateMonth}}/{{$dateYears}}" readonly>
                         </div>
                       </div>
                       
-                      <div class="form-group row">
+                      {{-- <div class="form-group row">
                         <label for="petugas" class="col-sm-4 col-form-label">Petugas</label>
                         <div class="col-sm-8">
                             <input type="text" name="petugas_id" class="form-control">
                         </div>
-                      </div>
+                      </div> --}}
                         <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
                     </form>
                 </div>

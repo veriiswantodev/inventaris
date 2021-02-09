@@ -1,0 +1,10 @@
+{
+  "diffEditor.wordWrap": "on",
+  "editor.wordWrap": "on",
+  "html.format.wrapAttributesIndentSize": 120,
+  "[markdown]": {
+
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  }
+}
