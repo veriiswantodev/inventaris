@@ -46,10 +46,10 @@
               <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$inv->nama}}</td>
-                <td>{{$inv->jenis_id}}</td>
+                <td>{{$inv->jenis->nama_jenis}}</td>
                 <td>{{$inv->jumlah}}</td>
                 <td>{{$inv->tanggal_register}}</td>
-                <td>{{$inv->ruang_id}}</td>
+                <td>{{$inv->ruang->nama_ruang}}</td>
                 <td>{{$inv->kode_inventaris}}</td>
                 <td></td>
               </tr>
@@ -85,7 +85,11 @@
                         <div class="form-group row">
                           <label for="kondisi" class="col-sm-4 col-form-label">Kondisi</label>
                           <div class="col-sm-8">
-                              <input type="text" name="kondisi" class="form-control">
+                            <select name="kondisi" class="form-control">
+                              <option selected>Silahkan pilih</option>
+                              <option value="Baru">Baru</option>
+                              <option value="Bekas">Bekas</option>
+                            </select>
                           </div>
                       </div>
                       

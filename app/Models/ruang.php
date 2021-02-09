@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Inventaris;
 
 class ruang extends Model
 {
@@ -12,4 +13,8 @@ class ruang extends Model
     protected $table = 'ruang';
     
     protected $fillable = ['nama_ruang', 'kode_ruang', 'keterangan'];
+    
+    public function inventaris(){
+        return $this->hasMany(Inventaris::class);
+    }
 }
