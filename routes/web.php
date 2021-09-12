@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TempatController;
+use App\Http\Controllers\MutasiController;
+use App\Http\Controllers\InventarisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +20,6 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/barang', [BarangController::class, 'index']);
+Route::get('/inventaris', [InventarisController::class, 'index']);
+Route::get('/tempat', [TempatController::class, 'index']);
+Route::get('/mutas', [MutasiController::class, 'index']);

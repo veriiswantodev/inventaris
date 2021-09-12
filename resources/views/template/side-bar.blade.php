@@ -23,6 +23,27 @@
       </li>
 
       <li class="nav-item ">
+        <a class="nav-link" href="/tempat">
+          <i class="material-icons">location_on</i>
+          <p>Tempat</p>
+        </a>
+      </li>
+
+      <li class="nav-item ">
+        <a class="nav-link" href="/mutasi">
+          <i class="material-icons">compress</i>
+          <p>Mutasi</p>
+        </a>
+      </li>
+
+      <li class="nav-item ">
+        <a class="nav-link" href="/inventaris">
+          <i class="material-icons">published_with_changes</i>
+          <p>Inventaris</p>
+        </a>
+      </li>
+
+      <li class="nav-item ">
         <a class="nav-link" href="/barang">
           <i class="material-icons">person</i>
           <p>User</p>

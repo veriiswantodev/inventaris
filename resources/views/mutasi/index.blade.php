@@ -1,11 +1,11 @@
 @extends('template.index')
 
 @section('title')
-Barang
+Mutasi
 @endsection
 
 @section('nav-brand')
-    Barang
+    Mutasi
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@ Barang
   <div class="container-fluid">
     <div class="card card-plain">
       <div class="card-header card-header-primary">
-        <h4 class="card-title">Data Barang
+        <h4 class="card-title">Data Mutasi
           <button class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i></button>
           <button class="btn btn-primary btn-sm float-right"><i class="fa fa-print"></i></button>
         </h4>
