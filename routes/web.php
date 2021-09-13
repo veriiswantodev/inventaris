@@ -20,6 +20,7 @@ use App\Http\Controllers\InventarisController;
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/barang', [BarangController::class, 'index']);
+Route::post('/add', [BarangController::class, 'add']);
 Route::get('/inventaris', [InventarisController::class, 'index']);
 Route::get('/tempat', [TempatController::class, 'index']);
 Route::get('/mutas', [MutasiController::class, 'index']);

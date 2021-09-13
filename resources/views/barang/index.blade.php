@@ -24,125 +24,30 @@ Barang
             <div class="table-responsive">
               <table class="table" id="table_id">
                 <thead class=" text-primary">
-                  <tr><th>
-                    ID
-                  </th>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Country
-                  </th>
-                  <th>
-                    City
-                  </th>
-                  <th>
-                    Salary
-                  </th>
-                </tr></thead>
+                  <tr>
+                    <th>
+                      NO
+                    </th>
+                    <th>
+                      Nama
+                    </th>
+                    <th>
+                      Merk
+                    </th>
+                    <th>
+                      Aksi
+                    </th>
+                  </tr>
+                </thead>
                 <tbody>
+                  @foreach ($barang as $item)
                   <tr>
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      Dakota Rice
-                    </td>
-                    <td>
-                      Niger
-                    </td>
-                    <td>
-                      Oud-Turnhout
-                    </td>
-                    <td class="text-primary">
-                      $36,738
-                    </td>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$item->nama}}</td>
+                    <td>{{$item->merk}}</td>
+                    <td> <i class="fa fa-trash"></i> </td>
                   </tr>
-                  <tr>
-                    <td>
-                      2
-                    </td>
-                    <td>
-                      Minerva Hooper
-                    </td>
-                    <td>
-                      Curaçao
-                    </td>
-                    <td>
-                      Sinaai-Waas
-                    </td>
-                    <td class="text-primary">
-                      $23,789
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      3
-                    </td>
-                    <td>
-                      Sage Rodriguez
-                    </td>
-                    <td>
-                      Netherlands
-                    </td>
-                    <td>
-                      Baileux
-                    </td>
-                    <td class="text-primary">
-                      $56,142
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      4
-                    </td>
-                    <td>
-                      Philip Chaney
-                    </td>
-                    <td>
-                      Korea, South
-                    </td>
-                    <td>
-                      Overland Park
-                    </td>
-                    <td class="text-primary">
-                      $38,735
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      5
-                    </td>
-                    <td>
-                      Doris Greene
-                    </td>
-                    <td>
-                      Malawi
-                    </td>
-                    <td>
-                      Feldkirchen in Kärnten
-                    </td>
-                    <td class="text-primary">
-                      $63,542
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      6
-                    </td>
-                    <td>
-                      Mason Porter
-                    </td>
-                    <td>
-                      Chile
-                    </td>
-                    <td>
-                      Gloucester
-                    </td>
-                    <td class="text-primary">
-                      $78,615
-                    </td>
-                  </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
@@ -161,12 +66,21 @@ Barang
               </button>
             </div>
             <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+              <form action="/add" method="post">
+                @csrf
+                <div class="form-group">
+                  <input type="text" name="nama" class="form-control" placeholder="Nama Barang">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" name="merk" class="form-control" placeholder="Merk">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
