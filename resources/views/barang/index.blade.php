@@ -46,8 +46,8 @@ Barang
                     <td>{{$item->nama}}</td>
                     <td>{{$item->merk}}</td>
                     <td>
-                      <a href="#"> <i class="fa fa-trash"></a></i>
-                      <a href="" data-toggle="modal" data-target="#modalEdit-{{$item->id}}"> <i class="fa fa-edit"></a href="#"></i>
+                      <a href="#" barang-id="{{$item->id}}" class="delete" data-nama="{{$item->nama}}"> <i class="fa fa-trash"></a></i>
+                      <a href="" data-toggle="modal" data-target="#modalEdit-{{$item->id}}" > <i class="fa fa-edit"></a href="#"></i>
                     </td>
                   </tr>
                   @endforeach
@@ -133,5 +133,28 @@ Barang
   $(document).ready( function () {
     $('#table_id').DataTable();
   } );
+
+  $('.delete').click(function(){
+    var barang_id = $(this).attr('barang-id');
+    var data_nama = $(this).attr('data-nama');
+      Swal.fire({
+      title: 'Yakin ?',
+      text: "Anda yain mau menghapus data " + data_nama + "?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((willdelete) => {
+      if (willdelete.isConfirmed) {
+        window.location = "/barang/"+barang_id+"/delete";
+        Swal.fire(
+          'Dihapus',
+          'Data Berhasil dihapus.',
+          'success'
+        )
+      }
+    });
+  });  
 </script>
 @endsection

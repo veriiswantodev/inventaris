@@ -40,6 +40,10 @@
   <script src="{{asset('js/material-dashboard.js?v=2.1.2')}}" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="{{asset('demo/demo.js')}}"></script>
+
+  {{-- Sweetalert --}}
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+
   <script>
     $(document).ready(function() {
       $().ready(function() {

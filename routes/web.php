@@ -16,6 +16,7 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/barang', [BarangController::class, 'index']);
 Route::post('/barang/add', [BarangController::class, 'add']);
 Route::match(['get', 'post'], '/barang/edit/{id}/', [BarangController::class, 'edit']);
+Route::get('/barang/{id}/delete', [BarangController::class, 'delete']);
 
 // Route Inventaris
 Route::get('/inventaris', [InventarisController::class, 'index']);
