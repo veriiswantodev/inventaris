@@ -28,13 +28,13 @@
           <p>Tempat</p>
         </a>
       </li>
-
+{{-- 
       <li class="nav-item ">
         <a class="nav-link" href="/mutasi">
           <i class="material-icons">compress</i>
           <p>Mutasi</p>
         </a>
-      </li>
+      </li> --}}
 
       <li class="nav-item ">
         <a class="nav-link" href="/inventaris">

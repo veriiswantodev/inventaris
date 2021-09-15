@@ -19,4 +19,15 @@ class BarangController extends Controller
 
         return redirect('barang');
     }
+
+    public function edit(Request $request, $id){
+        if($request->isMethod('post')){
+            $item = $request->all();
+
+            // dd($item);
+
+            Barang::where(['id' => $id])->update(['nama'=>$item['nama'],'merk'=>$item['merk']]);
+            return redirect()->back();
+        }
+    }
 }

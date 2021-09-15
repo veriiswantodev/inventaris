@@ -7,20 +7,22 @@ use App\Http\Controllers\TempatController;
 use App\Http\Controllers\MutasiController;
 use App\Http\Controllers\InventarisController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
+
+// Route Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+// Route Barang
 Route::get('/barang', [BarangController::class, 'index']);
-Route::post('/add', [BarangController::class, 'add']);
+Route::post('/barang/add', [BarangController::class, 'add']);
+Route::match(['get', 'post'], '/barang/edit/{id}/', [BarangController::class, 'edit']);
+
+// Route Inventaris
 Route::get('/inventaris', [InventarisController::class, 'index']);
+Route::post('/inventaris/add', [InventarisController::class, 'add']);
+// Route::match(['get', 'post'], '/edit/{id}', [InventarisController::class, 'edit']);
+
+// Route Tempat
 Route::get('/tempat', [TempatController::class, 'index']);
-Route::get('/mutas', [MutasiController::class, 'index']);
+Route::post('/tempat/add', [TempatController::class, 'add']);
+Route::match(['get', 'post'], '/tempat/edit/{id}', [TempatController::class, 'edit']);

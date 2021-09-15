@@ -11,17 +11,17 @@
       <div class="card card-stats">
         <div class="card-header card-header-warning card-header-icon">
           <div class="card-icon">
-            <i class="material-icons">content_copy</i>
+            <i class="material-icons">home_repair_service</i>
           </div>
-          <p class="card-category">Used Space</p>
-          <h3 class="card-title">49/50
-            <small>GB</small>
+          <p class="card-category">Barang</p>
+          <h3 class="card-title">{{$barang->count()}}
           </h3>
         </div>
         <div class="card-footer">
           <div class="stats">
-            <i class="material-icons text-danger">warning</i>
-            <a href="javascript:;">Get More Space...</a>
+            <a href="/barang">
+              Lihat Detail ...
+            </a>
           </div>
         </div>
       </div>
@@ -30,14 +30,14 @@
       <div class="card card-stats">
         <div class="card-header card-header-success card-header-icon">
           <div class="card-icon">
-            <i class="material-icons">store</i>
+            <i class="material-icons">location_on</i>
           </div>
-          <p class="card-category">Revenue</p>
-          <h3 class="card-title">$34,245</h3>
+          <p class="card-category">Tempat</p>
+          <h3 class="card-title">{{$tempat->count()}}</h3>
         </div>
         <div class="card-footer">
           <div class="stats">
-            <i class="material-icons">date_range</i> Last 24 Hours
+            <a  href="/tempat">Lihat Detail ...</a> 
           </div>
         </div>
       </div>
@@ -46,9 +46,9 @@
       <div class="card card-stats">
         <div class="card-header card-header-danger card-header-icon">
           <div class="card-icon">
-            <i class="material-icons">info_outline</i>
+            <i class="material-icons">published_with_changes</i>
           </div>
-          <p class="card-category">Fixed Issues</p>
+          <p class="card-category">Inventaris</p>
           <h3 class="card-title">75</h3>
         </div>
         <div class="card-footer">
@@ -62,9 +62,9 @@
       <div class="card card-stats">
         <div class="card-header card-header-info card-header-icon">
           <div class="card-icon">
-            <i class="fa fa-twitter"></i>
+            <i class="fa fa-user"></i>
           </div>
-          <p class="card-category">Followers</p>
+          <p class="card-category">User</p>
           <h3 class="card-title">+245</h3>
         </div>
         <div class="card-footer">

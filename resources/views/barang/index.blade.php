@@ -45,7 +45,10 @@ Barang
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->nama}}</td>
                     <td>{{$item->merk}}</td>
-                    <td> <i class="fa fa-trash"></i> </td>
+                    <td>
+                      <a href="#"> <i class="fa fa-trash"></a></i>
+                      <a href="" data-toggle="modal" data-target="#modalEdit-{{$item->id}}"> <i class="fa fa-edit"></a href="#"></i>
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>
@@ -55,7 +58,8 @@ Barang
         </div>
       </div>
 
-      {{-- Modal --}}
+
+      {{-- Modal add --}}
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -66,8 +70,9 @@ Barang
               </button>
             </div>
             <div class="modal-body">
-              <form action="/add" method="post">
+              <form action="/barang/add" method="post" id="editForm">
                 @csrf
+                {{method_field('PUT')}}
                 <div class="form-group">
                   <input type="text" name="nama" class="form-control" placeholder="Nama Barang">
                 </div>
@@ -84,6 +89,40 @@ Barang
           </div>
         </div>
       </div>
+      {{-- End Modal Add --}}
+
+      {{-- Modal edit --}}
+      @foreach ($barang as $item)
+      <div class="modal fade" id="modalEdit-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="{{ url ('/barang/edit/'. $item->id)}}" method="post">
+                @csrf
+                <div class="form-group">
+                  <input type="text" name="nama" class="form-control" placeholder="Nama Barang" value="{{$item->nama}}">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" name="merk" class="form-control" placeholder="Merk" value="{{$item->merk}}">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      {{-- End Model Edit --}}
+      @endforeach
     </div>
   </div>
 </div>
