@@ -13,6 +13,6 @@ class Barang extends Model
     protected $fillable = ['nama', 'merk'];
 
     public function inventaris(){
-        return $this->belongsTo(Inventaris::class);
+        return $this->hasMany(Inventaris::class);
     }
 }

@@ -9,7 +9,15 @@ use App\Models\Tempat;
 
 class Inventaris extends Model
 {
+    protected $table = 'inventaris';
+
+    protected $fillable = ['kode_inventaris', 'jumlah', 'tanggal', 'tempat_id', 'barang_id'];
+
     public function barang(){
-        return $this->hasMany(Barang::class);
+        return $this->belongsTo(Barang::class);
+    }
+
+    public function tempat(){
+        return $this->belongsTo(Tempat::class);
     }
 }

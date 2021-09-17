@@ -42,7 +42,7 @@ Tempat
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->nama}}</td>
                     <td>
-                      <a href="#"> <i class="fa fa-trash"></a></i>
+                      <a href="#" data-id="{{$item->id}}" data-nama="{{$item->nama}}" class="delete"> <i class="fa fa-trash"></a></i>
                       <a href="" data-toggle="modal" data-target="#modalEdit-{{ $item->id }}"> <i class="fa fa-edit"></a></i>
                     </td>
                   </tr>
@@ -119,5 +119,30 @@ Tempat
   $(document).ready( function () {
     $('#table_id').DataTable();
   } );
+
+
+  $('.delete').click(function(){
+    let tempat_id = $(this).attr('data-id');
+    let nama_id = $(this).attr('data-nama');
+
+    Swal.fire({
+      title: 'Yakin ?',
+      text: "Anda yain mau menghapus data " + nama_id + "?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((willdelete) => {
+      if (willdelete.isConfirmed) {
+        window.location = "/tempat/"+tempat_id+"/delete";
+        Swal.fire(
+          'Dihapus',
+          'Data Berhasil dihapus.',
+          'success'
+        )
+      }
+    });
+  })
 </script>
 @endsection

@@ -29,4 +29,10 @@ class TempatController extends Controller
             return redirect()->back();
         }
     }
+
+    public function delete($id){
+        $tempat = Tempat::find($id);
+        $tempat->delete();
+        return redirect('/tempat');
+    }
 }

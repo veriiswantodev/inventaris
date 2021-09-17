@@ -10,4 +10,8 @@ class Tempat extends Model
     protected $table = 'tempat';
 
     protected $fillable = ['nama'];
+
+    public function inventaris(){
+        return $this->hasMany(Inventaris::class);
+    }
 }

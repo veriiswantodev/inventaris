@@ -24,40 +24,51 @@ Inventaris
             <div class="table-responsive">
               <table class="table" id="table_id">
                 <thead class=" text-primary">
-                  <tr><th>
-                    ID
-                  </th>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Country
-                  </th>
-                  <th>
-                    City
-                  </th>
-                  <th>
-                    Salary
-                  </th>
-                </tr></thead>
+                  <tr>
+                    <th>
+                    No.
+                    </th>
+                    <th>
+                      Kode Inventaris
+                    </th>
+                    <th>
+                      Nama
+                    </th>
+                    <th>
+                      Merk
+                    </th>
+                    <th>
+                      Tempat
+                    </th>
+                    <th>
+                      Aksi
+                    </th>
+                  </tr>
+              </thead>
                 <tbody>
+                  @foreach ($inven as $item)
                   <tr>
                     <td>
-                      1
+                      {{$loop->iteration}}
                     </td>
                     <td>
-                      Dakota Rice
+                     {{$item->kode_inventaris}}
                     </td>
                     <td>
-                      Niger
+                      {{$item->barang->nama}}
                     </td>
                     <td>
-                      Oud-Turnhout
+                      {{$item->barang->merk}}
                     </td>
-                    <td class="text-primary">
-                      $36,738
+                    <td>
+                      {{$item->tempat->nama}}
+                    </td>
+                    <td>
+                      <a href=""><span class="fa fa-edit"></span></a>
+                      <a href=""><span class="fa fa-trash"></span></a>
                     </td>
                   </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
@@ -70,13 +81,33 @@ Inventaris
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              ...
+              <form action="/inventaris/add" method="post">
+                @csrf
+                <div class="form-group">
+                  <input type="text" name="kode_inventaris" placeholder="{{$full}}" class="form-control" disabled>
+                </div>
+                <div class="form-group">
+                  <select name="barang_id" class="form-control">
+                    @foreach ($barang as $i_barang)
+                        <option value="{{$i_barang->id}}">{{$i_barang->nama}}</option>
+                    @endforeach
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <select name="tempat_id" class="form-control">
+                    @foreach ($tempat as $i_tempat)
+                        <option value="{{$i_tempat->id}}">{{$i_tempat->nama}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

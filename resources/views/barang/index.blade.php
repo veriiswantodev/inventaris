@@ -72,7 +72,6 @@ Barang
             <div class="modal-body">
               <form action="/barang/add" method="post" id="editForm">
                 @csrf
-                {{method_field('PUT')}}
                 <div class="form-group">
                   <input type="text" name="nama" class="form-control" placeholder="Nama Barang">
                 </div>

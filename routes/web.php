@@ -27,3 +27,4 @@ Route::post('/inventaris/add', [InventarisController::class, 'add']);
 Route::get('/tempat', [TempatController::class, 'index']);
 Route::post('/tempat/add', [TempatController::class, 'add']);
 Route::match(['get', 'post'], '/tempat/edit/{id}', [TempatController::class, 'edit']);
+Route::get('/tempat/{id}/delete', [TempatController::class, 'delete']);
